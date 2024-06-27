@@ -24,7 +24,7 @@ public class MyDbContext : DbContext
     {
         if (!optionsBuilder.IsConfigured)
         {
-            optionsBuilder.UseMySQL("Server=localhost; User ID=enterprise; Password=password; Database=bookshop");
+            optionsBuilder.UseMySQL("Server=localhost; User ID=enterprise; Password=password; Database=enterprise");
         }
     }
 

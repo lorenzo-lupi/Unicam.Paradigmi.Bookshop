@@ -29,7 +29,7 @@ public class GenericRepository<T> where T : class
         return this;
     }
     
-    public async Task<int> Save()
+    public async Task<int> SaveAsync()
     {
         return await Context.SaveChangesAsync();
     }
