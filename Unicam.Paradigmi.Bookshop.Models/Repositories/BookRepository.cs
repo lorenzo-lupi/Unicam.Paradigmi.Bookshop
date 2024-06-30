@@ -1,11 +1,12 @@
 using Microsoft.EntityFrameworkCore;
+using Unicam.Paradigmi.Bookshop.Models.Context;
 using Unicam.Paradigmi.Bookshop.Models.Entities;
 
 namespace Unicam.Paradigmi.Bookshop.Models.Repositories;
 
 public class BookRepository : GenericRepository<Book>
 {
-    public BookRepository(DbContext context) : base(context)
+    public BookRepository(MyDbContext context) : base(context)
     {
         
     }
@@ -13,7 +14,7 @@ public class BookRepository : GenericRepository<Book>
     public async Task<List<Book>> GetBooksAsync(int page, int pageSize, 
         string? bookName, DateTime? publicationTime, string? author)
     {
-        var query = Context.Set<Book>().AsQueryable();
+        var query = Context.Books.AsQueryable();
         
         query = FilterByTitle(query, bookName);
         query = FilterByPublicationTime(query, publicationTime);

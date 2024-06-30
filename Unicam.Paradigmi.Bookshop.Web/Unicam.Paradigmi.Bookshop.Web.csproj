@@ -7,11 +7,18 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.0.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0" />
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Unicam.Paradigmi.Bookshop.Application\Unicam.Paradigmi.Bookshop.Application.csproj" />
       <ProjectReference Include="..\Unicam.Paradigmi.Bookshop.Models\Unicam.Paradigmi.Bookshop.Models.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="WeatherForecast.cs" />
+      <Compile Remove="Controllers\WeatherForecastController.cs" />
     </ItemGroup>
 
 </Project>

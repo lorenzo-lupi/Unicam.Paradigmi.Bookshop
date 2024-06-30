@@ -1,12 +1,13 @@
 using Microsoft.EntityFrameworkCore;
+using Unicam.Paradigmi.Bookshop.Models.Context;
 
 namespace Unicam.Paradigmi.Bookshop.Models.Repositories;
 
 public class GenericRepository<T> where T : class
 {
-    protected readonly DbContext Context;
+    protected readonly MyDbContext Context;
     
-    public GenericRepository(DbContext context)
+    protected GenericRepository(MyDbContext context)
     {
         Context = context;
     }
@@ -33,5 +34,7 @@ public class GenericRepository<T> where T : class
     {
         return await Context.SaveChangesAsync();
     }
+
+
     
 }
