@@ -16,15 +16,12 @@ public class UserService : IUserService
 
     public async Task<User> CreateUserAsync(User user)
     {
-        if (await UserEmailExistsInDatabase(user.Email)) throw new UserAlreadyExistsInDatabase(user.Email);
-
+        var emailExists = await _userRepository.EmailExistsInDatabaseAsync(user.Email); 
+        if (emailExists) throw new UserAlreadyExistsInDatabase(user.Email);
+        
         _userRepository.Add(user);
         await _userRepository.SaveAsync();
         return user;
     }
-
-    private async Task<bool> UserEmailExistsInDatabase(string email)
-    {
-        return await _userRepository.GetUserByEmailAsync(email) != null;
-    }
+    
 }
