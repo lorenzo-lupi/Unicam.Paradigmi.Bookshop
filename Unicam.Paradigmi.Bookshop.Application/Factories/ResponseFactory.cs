@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using Unicam.Paradigmi.Bookshop.Application.Models.Responses;
 
 namespace Unicam.Paradigmi.Bookshop.Application.Factories;
@@ -22,10 +21,10 @@ public class ResponseFactory
 
     public static BaseResponse<bool> WithError(string message)
     {
-        var response = new BadResponse()
+        var response = new BadResponse
         {
             Success = false,
-            Errors = new List<string>()
+            Errors = new List<string>
             {
                 message
             }

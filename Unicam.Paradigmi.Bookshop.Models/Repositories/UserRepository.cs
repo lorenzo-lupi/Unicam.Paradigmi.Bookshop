@@ -9,11 +9,10 @@ public class UserRepository : GenericRepository<User>
     public UserRepository(MyDbContext context) : base(context)
     {
     }
-    
+
     public async Task<User?> GetUserByEmailAsync(string email)
     {
         return await Context.Users
             .FirstOrDefaultAsync(q => q.Email.Equals(email));
     }
-    
 }

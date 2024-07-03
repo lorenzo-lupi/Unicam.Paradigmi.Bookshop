@@ -6,8 +6,8 @@ public class UserDto
 {
     public UserDto()
     {
-        
     }
+
     public UserDto(User user)
     {
         Id = user.Id;
@@ -16,8 +16,8 @@ public class UserDto
         Email = user.Email;
         Password = user.Password;
     }
-    
-    public int Id { get; set;}
+
+    public int Id { get; set; }
     public string Name { get; set; } = string.Empty;
     public string Surname { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;

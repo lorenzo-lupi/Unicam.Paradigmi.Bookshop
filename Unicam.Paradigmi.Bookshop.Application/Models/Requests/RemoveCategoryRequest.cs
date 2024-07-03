@@ -8,7 +8,7 @@ public class RemoveCategoryRequest
 
     public Category ToEntity()
     {
-        Category category = new Category();
+        var category = new Category();
         category.Id = Id;
         return category;
     }

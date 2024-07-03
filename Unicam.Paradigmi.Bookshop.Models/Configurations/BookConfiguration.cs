@@ -12,7 +12,7 @@ public class BookConfiguration : IEntityTypeConfiguration<Book>
             .HasKey(b => b.Id);
         DefineProperties(builder);
     }
-    
+
     private static void DefineProperties(EntityTypeBuilder<Book> builder)
     {
         builder.Property(b => b.Title)

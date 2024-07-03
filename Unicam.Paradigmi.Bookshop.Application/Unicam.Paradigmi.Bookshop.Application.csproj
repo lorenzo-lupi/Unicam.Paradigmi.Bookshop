@@ -7,24 +7,25 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Remove="Class1.cs" />
-      <Compile Remove="Models\Mappers\**" />
+        <Compile Remove="Class1.cs"/>
+        <Compile Remove="Models\Mappers\**"/>
+        <Compile Remove="CustomExceptions\BookNotFoundException.cs"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Unicam.Paradigmi.Bookshop.Models\Unicam.Paradigmi.Bookshop.Models.csproj" />
+        <ProjectReference Include="..\Unicam.Paradigmi.Bookshop.Models\Unicam.Paradigmi.Bookshop.Models.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <EmbeddedResource Remove="Models\Mappers\**" />
+        <EmbeddedResource Remove="Models\Mappers\**"/>
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="Models\Mappers\**" />
+        <None Remove="Models\Mappers\**"/>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+        <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0"/>
     </ItemGroup>
 
 </Project>

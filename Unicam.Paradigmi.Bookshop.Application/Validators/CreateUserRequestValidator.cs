@@ -1,8 +1,6 @@
 using FluentValidation;
-using Google.Protobuf.WellKnownTypes;
 using Unicam.Paradigmi.Bookshop.Application.Extensions;
 using Unicam.Paradigmi.Bookshop.Application.Models.Requests;
-using Unicam.Paradigmi.Bookshop.Models.Repositories;
 
 namespace Unicam.Paradigmi.Bookshop.Application.Validators;
 
@@ -10,7 +8,6 @@ public class CreateUserRequestValidator : AbstractValidator<CreateUserRequest>
 {
     public CreateUserRequestValidator()
     {
-
         RuleFor(u => u.Password)
             .NotNull().WithMessage("Password's field can't be null")
             .NotEmpty().WithMessage("Password's field can't be empty");
@@ -23,5 +20,4 @@ public class CreateUserRequestValidator : AbstractValidator<CreateUserRequest>
         RuleFor(u => u.Surname)
             .NotEmpty().WithMessage("Surname field can't be empty");
     }
-    
 }

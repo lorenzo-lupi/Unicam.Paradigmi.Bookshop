@@ -12,7 +12,7 @@ public class CategoryConfiguration : IEntityTypeConfiguration<Category>
             .HasKey(c => c.Id);
         DefineProperties(builder);
     }
-    
+
     private static void DefineProperties(EntityTypeBuilder<Category> builder)
     {
         builder.Property(c => c.Name)

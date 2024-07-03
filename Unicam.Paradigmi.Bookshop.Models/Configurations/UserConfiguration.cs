@@ -12,7 +12,7 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .HasKey(u => u.Id);
         DefineProperties(builder);
     }
-    
+
     private static void DefineProperties(EntityTypeBuilder<User> builder)
     {
         builder.Property(u => u.Name)

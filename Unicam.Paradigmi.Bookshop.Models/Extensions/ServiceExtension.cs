@@ -8,14 +8,13 @@ namespace Unicam.Paradigmi.Bookshop.Models.Extensions;
 
 public static class ServiceExtension
 {
-    
     public static IServiceCollection AddModelServices(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddMyDbContext(configuration)
             .AddRepositories();
         return services;
     }
-    
+
     private static IServiceCollection AddMyDbContext(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<MyDbContext>(options =>
@@ -24,12 +23,11 @@ public static class ServiceExtension
         });
         return services;
     }
-    
-    private static IServiceCollection AddRepositories(this IServiceCollection services)
+
+    private static void AddRepositories(this IServiceCollection services)
     {
         services.AddScoped<BookRepository>();
         services.AddScoped<UserRepository>();
         services.AddScoped<CategoryRepository>();
-        return services;
     }
 }

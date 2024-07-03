@@ -13,22 +13,21 @@ namespace Unicam.Paradigmi.Bookshop.Web.Controllers;
 [Route("api/v1/[controller]")]
 public class CategoryController : ControllerBase
 {
-
     private readonly ICategoryService _categoryService;
 
     public CategoryController(ICategoryService categoryService)
     {
         _categoryService = categoryService;
     }
-    
+
     [HttpPost]
     [Route("create")]
     public async Task<IActionResult> CreateCategoryAsync(CreateCategoryRequest request)
     {
         var category = await _categoryService.CreateCategoryAsync(request.ToEntity());
-        var response = new CreateCategoryResponse()
+        var response = new CreateCategoryResponse
         {
-            CategoryDto = new CategoryDto()
+            CategoryDto = new CategoryDto
             {
                 Id = category.Id,
                 Name = category.Name
@@ -36,6 +35,7 @@ public class CategoryController : ControllerBase
         };
         return Ok(ResponseFactory.WithSuccess(response));
     }
+
     [HttpDelete]
     [Route("remove")]
     public async Task<IActionResult> RemoveCategoryAsync(RemoveCategoryRequest request)

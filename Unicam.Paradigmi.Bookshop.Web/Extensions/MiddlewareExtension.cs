@@ -1,21 +1,20 @@
 using System.Net;
 using Microsoft.AspNetCore.Diagnostics;
-using Ubiety.Dns.Core;
 using Unicam.Paradigmi.Bookshop.Application.Factories;
 
 namespace Unicam.Paradigmi.Bookshop.Web.Extensions;
 
 public static class MiddlewareExtension
 {
-    public static WebApplication? UseWebApiMiddlewares(this WebApplication app)
+    public static WebApplication UseWebApiMiddlewares(this WebApplication app)
     {
-        
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();
             app.UseSwaggerUI();
         }
+
         app.SetUpExceptionHandler();
         app.UseHttpsRedirection();
         app.UseAuthorization();
@@ -25,7 +24,7 @@ public static class MiddlewareExtension
 
     /*
         creation of an alternative pipeline to use
-       to handle exceptions and to provide a standard response
+       to handle exceptions abookDto.Categories = book.Categories.Select()nd to provide a standard response
        for errors
     */
     private static void SetUpExceptionHandler(this WebApplication app)
@@ -45,5 +44,4 @@ public static class MiddlewareExtension
             });
         });
     }
-    
 }

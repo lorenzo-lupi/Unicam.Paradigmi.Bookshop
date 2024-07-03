@@ -12,7 +12,6 @@ public class MyDbContext : DbContext
 
     public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
     {
-        
     }
 
     public DbSet<Book> Books { get; set; } = null!;
@@ -23,9 +22,7 @@ public class MyDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
-        {
             optionsBuilder.UseMySQL("Server=localhost; User ID=enterprise; Password=password; Database=enterprise");
-        }
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

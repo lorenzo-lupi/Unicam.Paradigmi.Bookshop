@@ -5,7 +5,7 @@ namespace Unicam.Paradigmi.Bookshop.Models.Entities;
 public class BookCategory
 {
     public int BookId { get; set; }
-    public Book Book { get; set; } = null!;
+    public Book? Book { get; set; }
     public int CategoryId { get; set; }
-    public Category Category { get; set; } = null!;
+    public Category? Category { get; set; }
 }

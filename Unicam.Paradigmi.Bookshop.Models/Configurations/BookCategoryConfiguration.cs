@@ -12,7 +12,7 @@ public class BookCategoryConfiguration : IEntityTypeConfiguration<BookCategory>
             .HasKey(r => new { r.BookId, r.CategoryId });
         DefineRelations(builder);
     }
-    
+
     private static void DefineRelations(EntityTypeBuilder<BookCategory> builder)
     {
         builder.HasOne(r => r.Book)
@@ -20,12 +20,11 @@ public class BookCategoryConfiguration : IEntityTypeConfiguration<BookCategory>
             .HasForeignKey(r => r.BookId)
             .OnDelete(DeleteBehavior.Cascade)
             .IsRequired();
-        
+
         builder.HasOne(r => r.Category)
             .WithMany()
             .HasForeignKey(r => r.CategoryId)
             .OnDelete(DeleteBehavior.Cascade)
             .IsRequired();
     }
-    
 }

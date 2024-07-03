@@ -11,7 +11,7 @@ public class CreateUserRequest
 
     public User ToEntity()
     {
-        User user = new User();
+        var user = new User();
         user.Name = Name;
         user.Surname = Surname;
         user.Email = Email;

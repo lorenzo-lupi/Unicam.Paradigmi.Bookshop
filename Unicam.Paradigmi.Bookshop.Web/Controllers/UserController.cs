@@ -13,27 +13,25 @@ namespace Unicam.Paradigmi.Bookshop.Web.Controllers;
 [Route("api/v1/[controller]")]
 public class UserController : ControllerBase
 {
-   private readonly IUserService _userService;
-   
-   public UserController(IUserService userService)
-   {
-      _userService = userService;
-   }
+    private readonly IUserService _userService;
 
-   [HttpPost]
-   [Route("create")]
-   public async Task<IActionResult> CreateUser(CreateUserRequest userRequest)
-   {
-      var user = await _userService.CreateUserAsync(userRequest.ToEntity());
-      var userDto = new UserDto(user);
-      userDto.Password = "";
-      var createUserResponse = new CreateUserResponse()
-      {
-         UserDto = new UserDto(user)
-      };
+    public UserController(IUserService userService)
+    {
+        _userService = userService;
+    }
 
-      return Ok(ResponseFactory.WithSuccess(createUserResponse));
-   }
+    [HttpPost]
+    [Route("create")]
+    public async Task<IActionResult> CreateUser(CreateUserRequest userRequest)
+    {
+        var user = await _userService.CreateUserAsync(userRequest.ToEntity());
+        var userDto = new UserDto(user);
+        userDto.Password = "";
+        var createUserResponse = new CreateUserResponse
+        {
+            UserDto = new UserDto(user)
+        };
 
-
+        return Ok(ResponseFactory.WithSuccess(createUserResponse));
+    }
 }

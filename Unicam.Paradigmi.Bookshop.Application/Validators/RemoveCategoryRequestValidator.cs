@@ -8,6 +8,6 @@ public class RemoveCategoryRequestValidator : AbstractValidator<RemoveCategoryRe
     public RemoveCategoryRequestValidator()
     {
         RuleFor(r => r.Id)
-            .GreaterThanOrEqualTo(0).WithMessage("Id can't have negative values");
+            .GreaterThanOrEqualTo(0).WithMessage("Illegal Id format");
     }
 }
