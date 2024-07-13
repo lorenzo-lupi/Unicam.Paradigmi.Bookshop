@@ -15,6 +15,7 @@ public static class ServiceExtension
         return services;
     }
 
+
     private static IServiceCollection AddMyDbContext(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<MyDbContext>(options =>

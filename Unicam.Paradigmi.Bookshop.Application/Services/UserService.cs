@@ -1,5 +1,4 @@
 using Unicam.Paradigmi.Bookshop.Application.Abstractions.Services;
-using Unicam.Paradigmi.Bookshop.Application.CustomExceptions;
 using Unicam.Paradigmi.Bookshop.Models.Entities;
 using Unicam.Paradigmi.Bookshop.Models.Repositories;
 
@@ -16,12 +15,11 @@ public class UserService : IUserService
 
     public async Task<User> CreateUserAsync(User user)
     {
-        var emailExists = await _userRepository.EmailExistsInDatabaseAsync(user.Email); 
-        if (emailExists) throw new UserAlreadyExistsInDatabase(user.Email);
-        
+        var emailExists = await _userRepository.EmailExistsInDatabaseAsync(user.Email);
+        if (emailExists) throw new InvalidOperationException($"{user.Email} already exists");
+
         _userRepository.Add(user);
         await _userRepository.SaveAsync();
         return user;
     }
-    
 }

@@ -16,7 +16,6 @@ public static class BookDtoFactory
             PublicationDate = book.PublicationDate,
             Categories = book.Categories.Select(FromBookCategory).ToList()
         };
-            
     }
 
     private static CategoryDto FromBookCategory(BookCategory bookCategory)

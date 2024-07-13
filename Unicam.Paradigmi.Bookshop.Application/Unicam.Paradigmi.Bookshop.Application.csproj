@@ -10,6 +10,8 @@
         <Compile Remove="Class1.cs"/>
         <Compile Remove="Models\Mappers\**"/>
         <Compile Remove="CustomExceptions\BookNotFoundException.cs"/>
+        <Compile Remove="CustomExceptions\CategoryAlreadyExistsInDatabase.cs" />
+        <Compile Remove="CustomExceptions\**" />
     </ItemGroup>
 
     <ItemGroup>
@@ -18,14 +20,17 @@
 
     <ItemGroup>
         <EmbeddedResource Remove="Models\Mappers\**"/>
+        <EmbeddedResource Remove="CustomExceptions\**" />
     </ItemGroup>
 
     <ItemGroup>
         <None Remove="Models\Mappers\**"/>
+        <None Remove="CustomExceptions\**" />
     </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0"/>
+        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.35.0"/>
     </ItemGroup>
 
 </Project>

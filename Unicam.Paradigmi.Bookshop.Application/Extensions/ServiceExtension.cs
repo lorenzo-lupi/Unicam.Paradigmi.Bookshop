@@ -1,5 +1,4 @@
 using FluentValidation;
-using FluentValidation.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Unicam.Paradigmi.Bookshop.Application.Abstractions.Services;
@@ -16,13 +15,13 @@ public static class ServiceExtension
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<ICategoryService, CategoryService>();
         services.AddScoped<IBookService, BookService>();
-        AddValidationServices(services);
+        services.AddScoped<ITokenService, TokenService>();
+        services.AddValidationServices();
         return services;
     }
 
-    private static void AddValidationServices(IServiceCollection services)
+    private static IServiceCollection AddValidationServices(this IServiceCollection services)
     {
-        services.AddFluentValidationAutoValidation();
         //TODO
         /*services.AddValidatorsFromAssembly(
             AppDomain.CurrentD omain.GetAssemblies().SingleOrDefault(assembly =>
@@ -35,5 +34,7 @@ public static class ServiceExtension
         services.AddValidatorsFromAssemblyContaining<GetBookRequestValidator>();
         services.AddValidatorsFromAssemblyContaining<DeleteBookRequestValidator>();
         services.AddValidatorsFromAssemblyContaining<CreateBookRequestValidator>();
+        services.AddValidatorsFromAssemblyContaining<CreateTokenRequestValidator>();
+        return services;
     }
 }

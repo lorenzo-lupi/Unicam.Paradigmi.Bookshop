@@ -7,5 +7,5 @@ public class Book
     public string Author { get; set; } = string.Empty;
     public DateTime? PublicationDate { get; set; }
     public string? Editor { get; set; }
-    public List<BookCategory> Categories { get; set; } = new List<BookCategory>();
+    public List<BookCategory> Categories { get; set; } = new();
 }

@@ -15,9 +15,10 @@ public static class MiddlewareExtension
             app.UseSwaggerUI();
         }
 
-        app.SetUpExceptionHandler();
-        app.UseHttpsRedirection();
-        app.UseAuthorization();
+        app.SetUpExceptionHandler()
+            .UseHttpsRedirection()
+            .UseAuthentication()
+            .UseAuthorization();
         app.MapControllers();
         return app;
     }
@@ -27,7 +28,7 @@ public static class MiddlewareExtension
        to handle exceptions abookDto.Categories = book.Categories.Select()nd to provide a standard response
        for errors
     */
-    private static void SetUpExceptionHandler(this WebApplication app)
+    private static WebApplication SetUpExceptionHandler(this WebApplication app)
     {
         app.UseExceptionHandler(appError =>
         {
@@ -43,5 +44,6 @@ public static class MiddlewareExtension
                 }
             });
         });
+        return app;
     }
 }

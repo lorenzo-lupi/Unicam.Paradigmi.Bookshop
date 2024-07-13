@@ -1,5 +1,4 @@
 using Unicam.Paradigmi.Bookshop.Application.Abstractions.Services;
-using Unicam.Paradigmi.Bookshop.Application.CustomExceptions;
 using Unicam.Paradigmi.Bookshop.Models.Entities;
 using Unicam.Paradigmi.Bookshop.Models.Repositories;
 
@@ -16,7 +15,8 @@ public class CategoryService : ICategoryService
 
     public async Task<Category> CreateCategoryAsync(Category category)
     {
-        if (await _categoryRepository.CategoryExists(category.Name)) throw new CategoryAlreadyExistsInDatabase(category.Name);
+        if (await _categoryRepository.CategoryExists(category.Name))
+            throw new InvalidOperationException($"{category.Name} already exists");
 
         _categoryRepository.Add(category);
         await _categoryRepository.SaveAsync();
@@ -26,7 +26,7 @@ public class CategoryService : ICategoryService
     public async Task<bool> RemoveCategoryAsync(int categoryId)
     {
         var category = GetCategoryByIdAsync(categoryId);
-        if (category.Result == null) throw new CategoryNotInDatabase($"{categoryId}");
+        if (category.Result == null) throw new KeyNotFoundException($"{categoryId}");
 
         _categoryRepository.Remove(category.Result);
         await _categoryRepository.SaveAsync();

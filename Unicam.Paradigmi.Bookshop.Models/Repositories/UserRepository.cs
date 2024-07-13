@@ -14,4 +14,9 @@ public class UserRepository : GenericRepository<User>
     {
         return await Context.Users.AnyAsync(q => q.Email.Equals(email));
     }
+
+    public async Task<User?> GetUserFromEmailAndPassword(string email, string password)
+    {
+        return await Context.Users.FirstOrDefaultAsync(u => u.Email.Equals(email) && u.Password.Equals(password));
+    }
 }

@@ -21,7 +21,7 @@ public class BookRepository : GenericRepository<Book>
         query = FilterByTitle(query, bookName);
         query = FilterByPublicationTime(query, publicationTime);
         query = FilterByAuthor(query, author);
-        
+
 
         return await query.OrderBy(q => q.Title)
             .Skip(page * pageSize)

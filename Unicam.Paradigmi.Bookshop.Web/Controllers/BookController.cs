@@ -8,7 +8,7 @@ using Unicam.Paradigmi.Bookshop.Application.Models.Responses;
 namespace Unicam.Paradigmi.Bookshop.Web.Controllers;
 
 [ApiController]
-[AllowAnonymous]
+[Authorize]
 [Route("api/v1/[controller]")]
 public class BookController : ControllerBase
 {

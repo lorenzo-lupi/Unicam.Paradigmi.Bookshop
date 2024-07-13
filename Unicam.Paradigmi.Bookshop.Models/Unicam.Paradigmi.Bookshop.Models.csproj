@@ -9,7 +9,7 @@
     <ItemGroup>
         <Compile Remove="Class1.cs"/>
         <Compile Remove="Repositories\BookCategoryRepository.cs"/>
-        <Compile Remove="Extensions\QueryableExtension.cs" />
+        <Compile Remove="Extensions\QueryableExtension.cs"/>
     </ItemGroup>
 
     <ItemGroup>

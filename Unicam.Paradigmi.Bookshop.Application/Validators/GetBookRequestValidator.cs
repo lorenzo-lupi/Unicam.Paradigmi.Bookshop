@@ -12,7 +12,8 @@ public class GetBookRequestValidator : AbstractValidator<GetBookRequest>
         RuleFor(r => r.PageSize)
             .GreaterThanOrEqualTo(0).WithMessage("Illegal page size");
         RuleFor(r => new { r.PublicationDate, r.Author, r.BookName })
-            .Must(t => t.PublicationDate != null || !string.IsNullOrEmpty(t.Author) || !string.IsNullOrEmpty(t.BookName))
+            .Must(t => t.PublicationDate != null || !string.IsNullOrEmpty(t.Author) ||
+                       !string.IsNullOrEmpty(t.BookName))
             .WithMessage("At least one of the require fields must be provided");
     }
 }

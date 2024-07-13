@@ -8,11 +8,8 @@ public class BadRequestResultFactory : BadRequestObjectResult
     public BadRequestResultFactory(ActionContext context) : base(new BadResponse())
     {
         var retErrors = new List<string>();
-        
-        foreach (var key in context.ModelState)
-        {
-            retErrors.AddRange(key.Value.Errors.Select(e => e.ErrorMessage));
-        }
+
+        foreach (var key in context.ModelState) retErrors.AddRange(key.Value.Errors.Select(e => e.ErrorMessage));
 
         var response = (BadResponse)Value!;
         response.Errors = retErrors;

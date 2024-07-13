@@ -26,4 +26,11 @@ public static class ValidatorExtension
             if (!value.All(predicate.Invoke)) context.AddFailure(validationMessage);
         });
     }
+
+    public static void ValidateEmail<T>(this IRuleBuilderInitial<T, string> ruleBuilderInitial)
+    {
+        ruleBuilderInitial.NotNull().WithMessage("Email field can't be null")
+            .MaximumLength(345).WithMessage("Email field can't exceed the maximum 345 characters")
+            .RegEx("[a-zA-Z0-9._-]+@[a-zA-Z0-9]+.[a-z]{2,}", "Incorrect email format");
+    }
 }
