@@ -19,16 +19,14 @@ public static class ServiceExtension
             });
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-        services.AddEndpointsApiExplorer()
+        return services.AddEndpointsApiExplorer()
             .AddFluentValidationAutoValidation()
-            .AddSwagger(configuration)
+            .AddSwagger()
             .AddJwtAuthentication(configuration)
             .AddOptions(configuration);
-        return services;
     }
 
-    private static IServiceCollection AddSwagger(this IServiceCollection services,
-        IConfiguration configuration)
+    private static IServiceCollection AddSwagger(this IServiceCollection services)
     {
         services.AddSwaggerGen(c =>
         {

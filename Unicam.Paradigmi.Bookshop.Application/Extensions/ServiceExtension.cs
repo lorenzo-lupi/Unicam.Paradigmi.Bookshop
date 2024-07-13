@@ -16,8 +16,8 @@ public static class ServiceExtension
         services.AddScoped<ICategoryService, CategoryService>();
         services.AddScoped<IBookService, BookService>();
         services.AddScoped<ITokenService, TokenService>();
-        services.AddValidationServices();
-        return services;
+        
+        return services.AddValidationServices();
     }
 
     private static IServiceCollection AddValidationServices(this IServiceCollection services)
