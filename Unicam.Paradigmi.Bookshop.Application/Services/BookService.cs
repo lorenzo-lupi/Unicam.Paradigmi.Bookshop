@@ -63,6 +63,7 @@ public class BookService : IBookService
 
         _bookRepository.Remove(book);
         await _bookRepository.SaveAsync();
+        
         return true;
     }
 
@@ -101,8 +102,10 @@ public class BookService : IBookService
         ModifyNonNullParameters(bookDto, targetBook);
         targetBook.Categories.RemoveAll(bookCategoriesToRemove.Contains);
         targetBook.Categories.AddRange(bookCategoriesToAdd);
+        
         _bookRepository.Update(targetBook);
         await _bookRepository.SaveAsync();
+        
         return targetBook;
     }
 
