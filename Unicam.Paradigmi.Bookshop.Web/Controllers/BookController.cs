@@ -49,11 +49,17 @@ public class BookController : ControllerBase
     public async Task<IActionResult> DeleteBookAsync(DeleteBookRequest request)
     {
         var result = await _bookService.DeleteBookAsync(request.Id);
-
-        return Ok(new DeleteBookResponse
+        var deleteBookResponse = new DeleteBookResponse()
         {
             Result = result
-        });
+        };
+        
+        if (result)
+        {
+            return Ok(deleteBookResponse);
+        }
+
+        return BadRequest(ResponseFactory.WithError("Book not found"));
     }
 
     [HttpPost]

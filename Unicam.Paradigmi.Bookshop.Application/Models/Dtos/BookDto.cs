@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace Unicam.Paradigmi.Bookshop.Application.Models.Dtos;
 
 public class BookDto

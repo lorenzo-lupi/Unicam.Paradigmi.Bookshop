@@ -15,8 +15,7 @@ public class BookRepository : GenericRepository<Book>
     {
         var query = Context.Books.AsQueryable();
 
-        query.Include(b => b.Categories)
-            .ThenInclude(c => c.Category);
+        query = query.Include(b => b.Categories);
 
         query = FilterByTitle(query, bookName);
         query = FilterByPublicationTime(query, publicationTime);
