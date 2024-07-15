@@ -30,7 +30,7 @@ CREATE TABLE `Users` (
   `Email` varchar(320) NOT NULL,
   `Password` varchar(255) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +39,8 @@ CREATE TABLE `Users` (
 
 LOCK TABLES `Users` WRITE;
 /*!40000 ALTER TABLE `Users` DISABLE KEYS */;
+INSERT INTO `Users` VALUES
+(5,'Lorenzo','Lupi','email@unicam.it','password');
 /*!40000 ALTER TABLE `Users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -126,4 +128,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2024-07-14 11:01:56
+-- Dump completed on 2024-07-15 19:31:49
