@@ -12,7 +12,7 @@ namespace Unicam.Paradigmi.Bookshop.Web.Controllers;
 [Route("api/v1/[controller]")]
 public class BookController : ControllerBase
 {
-    private readonly IBookService _bookService;
+    private readonly IBookService _bookService; 
 
     public BookController(IBookService bookService)
     {
@@ -49,17 +49,13 @@ public class BookController : ControllerBase
     public async Task<IActionResult> DeleteBookAsync(DeleteBookRequest request)
     {
         var result = await _bookService.DeleteBookAsync(request.Id);
-        var deleteBookResponse = new DeleteBookResponse()
+        
+        var deleteBookResponse = new DeleteBookResponse
         {
             Result = result
         };
         
-        if (result)
-        {
-            return Ok(deleteBookResponse);
-        }
-
-        return BadRequest(ResponseFactory.WithError("Book not found"));
+        return Ok(deleteBookResponse);
     }
 
     [HttpPost]

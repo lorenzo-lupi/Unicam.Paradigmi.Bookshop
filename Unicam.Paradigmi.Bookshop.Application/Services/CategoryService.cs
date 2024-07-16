@@ -26,7 +26,8 @@ public class CategoryService : ICategoryService
     public async Task<bool> RemoveCategoryAsync(int categoryId)
     {
         var category = GetCategoryByIdAsync(categoryId);
-        if (category.Result == null) throw new KeyNotFoundException($"{categoryId}");
+        
+        if (category.Result == null) throw new KeyNotFoundException($"Category {categoryId} not found");
 
         _categoryRepository.Remove(category.Result);
         await _categoryRepository.SaveAsync();

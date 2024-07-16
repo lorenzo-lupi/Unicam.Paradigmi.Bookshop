@@ -59,7 +59,7 @@ public class BookService : IBookService
     {
         var book = await _bookRepository.GetBookByIdAsync(bookId);
     
-        if (book == null) return false;
+        if (book == null) throw new KeyNotFoundException($"Book {bookId} not found");
 
         _bookRepository.Remove(book);
         await _bookRepository.SaveAsync();
