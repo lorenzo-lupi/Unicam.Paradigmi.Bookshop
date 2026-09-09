@@ -1,3 +1,6 @@
+/// First C# project I ever did.
+/// Unfortunately, right after this exam, I decided to get a .NET developing job. RIP.
+
 Progetto Libreria N01
 Descrizione del Progetto
 
